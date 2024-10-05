@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { optionsContract } from "../actions/polygon";
 import { TextInput } from "@mantine/core";
 
-export const OptionsContract = React.memo<{}>(function _optionsContract() {
+export const OptionsContract = React.memo(function _optionsContract() {
   const [ticker, setTicker] = useState("SPY")
 
   const [options, setOptions] = useState("");
   useEffect(() => {
-    let intervalId = setInterval(() => {
+    const intervalId = setInterval(() => {
       optionsContract("O:SPY251219C00650000").then((data) => {
         setOptions(JSON.stringify(data, null, 2))
       });
