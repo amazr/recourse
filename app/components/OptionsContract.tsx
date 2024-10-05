@@ -6,7 +6,7 @@ import { optionsContract } from "../actions/polygon";
 import { TextInput } from "@mantine/core";
 
 export const OptionsContract = React.memo(function _optionsContract() {
-  const [ticker, setTicker] = useState("SPY")
+  const [ticker, setTicker] = useState("")
 
   const [options, setOptions] = useState("");
   useEffect(() => {
@@ -19,7 +19,12 @@ export const OptionsContract = React.memo(function _optionsContract() {
   }, [setOptions]);
   return (
     <div>
-      <TextInput value={ticker} onChange={(event) => setTicker(event.currentTarget.value)} />
+      <TextInput
+        value={ticker}
+        onChange={(event) => setTicker(event.currentTarget.value)}
+        label="Ticker"
+        placeholder="AAPL"
+      />
       {options}
     </div>
   );
